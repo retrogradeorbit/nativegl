@@ -6,11 +6,12 @@
   :dependencies [[org.clojure/clojure "1.10.2-alpha1"]]
   :source-paths ["src/clj"]
   :java-source-paths ["src/c" "src/java"]
+  :jvm-opts ["-Djava.library.path=./"]
   :main ^:skip-aot nativegl.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all
                        :jvm-opts ["-Dclojure.compiler.direct-linking=true"
                                   "-Dclojure.spec.skip-macros=true"
                                   "-Djava.library.path=./"
-                                  ]
-                       }})
+                                  ]}
+             :native-image {}})
