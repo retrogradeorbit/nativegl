@@ -13,6 +13,8 @@ set /P NATIVEGL_VERSION=< .meta\VERSION
 
 echo Building nativegl %NATIVEGL_VERSION%
 
+call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /MD /LD /Fenativegl.dll src/c/NativeGL.c
+
 call lein do clean, uberjar
 if %errorlevel% neq 0 exit /b %errorlevel%
 
