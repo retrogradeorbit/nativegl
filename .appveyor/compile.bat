@@ -7,7 +7,7 @@ if "%GRAALVM_HOME%"=="" (
     echo Please set GRAALVM_HOME
     exit /b
 )
-set JAVA_HOME=%GRAALVM_HOME%\bin
+set JAVA_HOME=%GRAALVM_HOME%
 set PATH=%GRAALVM_HOME%\bin;%PATH%
 set /P NATIVEGL_VERSION=< .meta\VERSION
 
