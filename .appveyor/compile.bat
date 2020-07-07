@@ -18,6 +18,7 @@ mkdir target
 mkdir target/jni
 call javac -h target/jni src/c/NativeGL.java
 
+echo cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
 call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
 
 call lein do clean, uberjar
