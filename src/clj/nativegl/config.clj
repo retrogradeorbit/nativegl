@@ -1,6 +1,5 @@
 (ns nativegl.config
-  (:require [clojure.java.io :as io])
-  (:import [java.util Base64]))
+  (:require [clojure.java.io :as io]))
 
 (set! *warn-on-reflection* true)
 
@@ -37,6 +36,7 @@
         ;; only write if filesize is different or it doesnt exist
         (when (or (not (.exists (io/file dest-path)))
                   (not= (.length (io/file dest-path)) resource-size))
+          (println "writing:" dest-path)
           (io/copy (io/input-stream file) (io/file dest-path)))))))
 
 (defn get-libs-dir []
@@ -55,4 +55,5 @@
     (when native-image?
       ;; most JVM implementations: this property needs to be set on launch
       ;; but graalvm allows us to dynamically change it
+      (println "setting java.library.path:" libs-dir)
       (System/setProperty "java.library.path" libs-dir))))
