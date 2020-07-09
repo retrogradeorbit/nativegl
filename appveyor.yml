@@ -53,8 +53,6 @@ build_script:
 
     dir SDL2-devel\SDL2-2.0.12\lib\x64
 
-    copy SDL2-devel\SDL2-2.0.12\lib\x64\SDL2.dll SDL2.dll
-
     call .appveyor/compile.bat
 
 test: off

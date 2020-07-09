@@ -22,6 +22,7 @@ call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni"
 
 mkdir resources
 copy nativegl.dll resources\
+copy SDL2-devel\SDL2-2.0.12\lib\x64\SDL2.dll resources\
 echo "present:"
 dir
 

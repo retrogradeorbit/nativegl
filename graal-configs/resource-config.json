@@ -2,6 +2,9 @@
   "resources": [
       {"pattern": "libnativegl.so$"},
       {"pattern": "libnativegl.dylib$"},
-      {"pattern": "nativegl.dll$"}
+      {"pattern": "nativegl.dll$"},
+      {"pattern": "libSDL2.so$"},
+      {"pattern": "libSDL2.dylib$"},
+      {"pattern": "SDL2.dll$"}
   ]
 }

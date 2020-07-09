@@ -3,7 +3,9 @@
 
 (set! *warn-on-reflection* true)
 
-(def libs-set ["libnativegl.dylib" "libnativegl.so" "nativegl.dll"])
+(def libs-set ["libnativegl.dylib" "libnativegl.so" "nativegl.dll"
+               "libSDL2.dylib" "libSDL2.so" "SDL2.dll"
+               ])
 
 (defn path-split
   "give a full path filename, return a tuple of
