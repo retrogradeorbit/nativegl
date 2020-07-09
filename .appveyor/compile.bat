@@ -1,4 +1,4 @@
-@echo off
+Rem @echo off
 
 Rem set GRAALVM_HOME=C:\Users\IEUser\Downloads\graalvm\graalvm-ce-java11-20.1.0
 Rem set PATH=%PATH%;C:\Users\IEUser\bin
@@ -18,8 +18,7 @@ mkdir target
 mkdir target/jni
 call javac -h target/jni src/c/NativeGL.java
 
-echo cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
-call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
+call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /I"SDL2-devel\SDL2-2.0.12\include" /MD /LD /Fenativegl.dll src/c/NativeGL.c
 
 mkdir resources
 copy nativegl.dll resources\

@@ -51,6 +51,8 @@ build_script:
 
     dir SDL2-devel\SDL2-2.0.12\lib
 
+    dir SDL2-devel\SDL2-2.0.12\lib\x64
+
     call .appveyor/compile.bat
 
 test: off
