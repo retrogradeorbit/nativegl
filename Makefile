@@ -50,7 +50,7 @@ ifndef JAVA_HOME
 	JAVA_HOME=$(GRAALVM_HOME)
 endif
 INCLUDE_DIRS=$(shell find $(JAVA_HOME)/include -type d)
-INCLUDE_ARGS=$(INCLUDE_DIRS:%=-I%) -I$(JNI_DIR)
+INCLUDE_ARGS=$(INCLUDE_DIRS:%=-I%) -I$(JNI_DIR) -I/usr/include/SDL2
 
 ifeq ($(UNAME),Linux)
 	LIB_FILE=$(SOLIB_FILE)
@@ -85,7 +85,7 @@ endif
 lib: $(LIB_FILE)
 
 $(SOLIB_FILE): $(C_FILE) $(C_HEADER)
-	$(CC) $(INCLUDE_ARGS) -shared $(C_FILE) -o $(SOLIB_FILE) -fPIC
+	$(CC) $(INCLUDE_ARGS) -shared $(C_FILE) -o $(SOLIB_FILE) -fPIC -lSDL2
 	cp $(SOLIB_FILE) ./
 	mkdir -p resources
 	cp $(SOLIB_FILE) ./resources/
