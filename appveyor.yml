@@ -39,6 +39,12 @@ build_script:
 
     dir SDL2
 
+    powershell -Command "(New-Object Net.WebClient).DownloadFile('http://www.libsdl.org/release/SDL2-devel-2.0.12-VC.zip', 'SDL2-devel-2.0.12-VC.zip')"
+
+    powershell -Command "Expand-Archive SDL2-devel-2.0.12-VC.zip SDL2-devel"
+
+    dir SDL2-devel
+
     call .appveyor/compile.bat
 
 test: off
