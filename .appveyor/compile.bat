@@ -21,7 +21,17 @@ call javac -h target/jni src/c/NativeGL.java
 echo cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
 call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
 
+mkdir resources
 copy src\c\nativegl.dll resources\
+echo "present:"
+dir
+
+echo "src:"
+dir src
+
+echo "src\c:"
+dir src\c
+
 echo "resources:"
 dir resources
 
