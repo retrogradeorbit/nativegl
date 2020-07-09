@@ -22,7 +22,7 @@ echo cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni"
 call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /MD /LD /Fenativegl.dll src/c/NativeGL.c
 
 mkdir resources
-copy src\c\nativegl.dll resources\
+copy nativegl.dll resources\
 echo "present:"
 dir
 
