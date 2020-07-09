@@ -18,7 +18,7 @@ mkdir target
 mkdir target/jni
 call javac -h target/jni src/c/NativeGL.java
 
-call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /I"SDL2-devel\SDL2-2.0.12\include" /MD /LD /Fenativegl.dll src/c/NativeGL.c \link SDL2-devel\SDL2-2.0.12\lib\x64\SDL2.dll
+call cl.exe /I"%JAVA_HOME%\include" /I"%JAVA_HOME%\include\win32" /I"target\jni" /I"SDL2-devel\SDL2-2.0.12\include" /MD /LD /Fenativegl.dll src/c/NativeGL.c /link SDL2-devel\SDL2-2.0.12\lib\x64\SDL2.dll
 
 mkdir resources
 copy nativegl.dll resources\
