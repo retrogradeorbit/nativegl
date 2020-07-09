@@ -42,10 +42,14 @@
           (io/copy (io/input-stream file) (io/file dest-path)))))))
 
 (defn get-libs-dir []
-  (let [home-dir (System/getenv "HOME")
+  #_(let [home-dir (System/getenv "HOME")
         config-dir (path-join home-dir ".nativegl")
         libs-dir (path-join config-dir "libs")]
-    libs-dir))
+      libs-dir)
+
+  ;; on windows, the linker will look for DLLs in the present dir
+  "./"
+  )
 
 (defn init! []
   (let [native-image?
