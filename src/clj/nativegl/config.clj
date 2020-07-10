@@ -47,7 +47,7 @@
         libs-dir (path-join config-dir "libs")]
       libs-dir)
 
-  ;; on windows, the linker will look for DLLs in the present dir
+  ;; on windows, the linker will (eventually) look for transitory DLLs in the present dir
   "./"
   )
 
