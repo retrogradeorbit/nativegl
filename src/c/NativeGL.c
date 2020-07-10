@@ -19,3 +19,23 @@ JNIEXPORT void JNICALL Java_NativeGL_quit(JNIEnv *env, jclass cls)
 {
   SDL_Quit();
 }
+
+JNIEXPORT jlong JNICALL Java_NativeGL_create_1window(JNIEnv *env, jclass cls, jbyteArray title, jint x, jint y, jint w, jint h, jint flags)
+{
+  //const jchar *s = (*env)->GetStringChars(env, title, NULL);
+  jbyte* javaStringByte = (*env)->GetByteArrayElements(env, title, NULL);
+  jsize javaStringlen = (*env)->GetArrayLength(env,title);
+
+  SDL_Window *window = SDL_CreateWindow((const char *)javaStringByte, x, y, w, h, flags);
+  if (window == NULL)
+    {
+      SDL_Log("Unable to create window: %s", SDL_GetError());
+    }
+  //(*env)->ReleaseStringChars(env, title, s);
+  return (jlong)window;
+}
+
+JNIEXPORT void JNICALL Java_NativeGL_destroy_1window(JNIEnv *env, jclass cls, jlong window)
+{
+  SDL_DestroyWindow((SDL_Window *)window);
+}
